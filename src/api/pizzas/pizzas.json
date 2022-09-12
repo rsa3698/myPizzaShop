@@ -1,0 +1,23 @@
+[
+    {
+      "productId": 1,
+      "productName": "Farmhouse",
+      "productCode": "AF-123",
+      "productStatus": 1,
+      "description": "Delightful combination of onion, capsicum, tomato & grilled mushroom",
+      "price": 459,
+      "starRating": 2.3,
+      "imageUrl": "assets/images/farmhouse.jpg"
+    },
+    {
+        "productId": 2,
+        "productName": "The 4 Cheese Pizza",
+        "productCode": "JK-783",
+        "productStatus": 1,
+        "description": "Cheese Overloaded pizza with 4 different varieties of cheese and 4 times the cheese of a normal pizza, including a spicy hit of Ghost",
+        "price": 639,
+        "starRating": 4.7,
+        "imageUrl": "assets/images/cheese.jpg"
+      }
+    
+  ]

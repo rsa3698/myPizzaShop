@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="card-header">
+       {{pageTitle}}
+    </div>
+
+
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-2">Filter by:</div>
+        <div class="col-md-4">
+            <input type="text" [(ngModel)]="listFilter"/>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h4> Filtered by : {{listFilter}}</h4>
+    </div>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table" *ngIf='pizzas.length'>
+        <thead>
+            <tr>
+                <th>
+                    <button class="btn btn-primary"
+                    (click)="toggleImage()">
+                        {{showImage ? 'Hide' : 'Show'}} Image
+                    </button>
+                </th>
+
+                <th>Pizza Name</th>
+                <th>Code</th>
+                <th>Status</th>
+                <th>Price</th>
+                <th>Ratings</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor='let pizza of filteredPizzas'>
+                <td>
+                    <img *ngIf="showImage"
+                     [src]='pizza.imageUrl'
+                      [title]='pizza.productName | uppercase'
+                    [style.width.px]='imageWidth'
+                    [style.margin.px]='imageMargin'>
+                </td>
+               <td><a [routerLink]="['/pizzas',pizza.productId]">{{pizza.productName}}</a></td> 
+                
+                <td>{{pizza.productCode | lowercase | convertToSpaces:'-'}}</td>
+                <td>{{pizza.productStatus}}</td>
+                <td>{{pizza.price | currency:'USD' :'symbol' : '1.2-2' }}</td>
+                <td>
+                    <app-star [rating]='pizza.starRating'
+                        (ratingClicked)='onRatingClicked($event)' >
+                    </app-star></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
